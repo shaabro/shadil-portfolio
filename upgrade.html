@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testing page</title>
+    <meta name="description"
+        content="Stunning web developer portfolio featuring case studies, projects, and design process.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+    
+    .nav{
+        height: 100px;
+    }
+
+    .container {
+      padding: 10px;
+      max-width: 1400px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .poster {
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+    }
+
+    .poster img {
+      width: 100%;
+      display: block;
+    }
+
+    .poster:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .poster-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .poster-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .poster-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .poster-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero{
+      width:1920px;
+      height:1080px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    
+    /* MAIN LAYOUT */
+    .hero-content{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:60px;
+      padding-top: 50px;
+    }
+
+    /* LEFT + RIGHT TEXT */
+    .text-block{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .name{
+      width: 390px;
+      font-family:'Oswald', sans-serif;
+      font-size:28px;
+      font-weight:500;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      text-align: left;
+      color:#ffffff;
+      margin-bottom:10px;
+    }
+
+    .main-title{
+      font-family:'Oswald', sans-serif;
+      font-size:100px;
+      font-weight:700;
+      line-height:0.9;
+      text-transform:uppercase;
+      color:#397fff;
+    }
+
+    /* CENTER IMAGE */
+    .image-wrapper{
+      width:320px;
+      height:470px;
+      border-radius:28px;
+      overflow:hidden;
+      transform:rotate(4deg);
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      flex-shrink:0;
+    }
+
+    .image-wrapper img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* DESCRIPTION */
+    .description{
+      font-size:20px;
+      line-height:1.5;
+      color:#ffffff;
+      width:520px;
+      text-align:right;
+    }
+
+    /* ALIGNMENT FIX */
+    .left-side{
+      align-items:flex-end;
+      text-align:right;
+    }
+
+    .right-side{
+      padding-top: 80px;
+      align-items:flex-start;
+      text-align:left;
+    }
+
+    .right-side h1{
+      text-align:center;
+      margin-bottom: 10px;
+    }
+
+/* CASE STUDIES SECTION */
+
+.section-header.sticky {
+    top: 100px;
+    z-index: 10;
+    background: rgba(10, 17, 31, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 20px 0;
+    margin-bottom: 2rem;
+}
+
+.cases-grid{
+    display:flex;
+    flex-direction:column;
+    gap:120px;
+    width:100%;
+}
+
+/* EACH CARD */
+.case-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:80px;
+    width:100%;
+    min-height:70vh;
+    position:sticky;
+    top: 200px;
+    padding:40px;
+    border-radius:32px;
+    background:transparent;
+    overflow:hidden;
+}
+
+/* ALTERNATE LAYOUT */
+.case-card:nth-child(even){
+    flex-direction:row-reverse;
+}
+
+/* IMAGE */
+.case-image{
+    flex:1;
+    height:650px;
+    overflow:hidden;
+    border-radius:24px;
+}
+
+.case-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+/* CONTENT */
+.case-content{
+    flex:1;
+    height:650px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    color:#fff;
+    background:#111;
+    padding:60px;
+    border-radius:24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.case-category{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:20px;
+    display:inline-block;
+}
+
+.case-title{
+    font-size:72px;
+    font-weight:700;
+    margin-bottom:24px;
+}
+
+.case-desc{
+    font-size:22px;
+    line-height:1.8;
+    color:#cfcfcf;
+    margin-bottom:32px;
+    max-width:650px;
+}
+
+.case-link{
+    font-size:20px;
+    font-weight:600;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* COLORS */
+.text-cyan{
+    color:#00d9ff;
+}
+
+.text-indigo{
+    color:#7c8cff;
+}
+
+.text-purple{
+    color:#b067ff;
+}
+
+/* RESPONSIVE */
+@media(max-width:1200px){
+
+    .case-card,
+    .case-card:nth-child(even){
+        flex-direction:column;
+        justify-content:center;
+    }
+
+    .case-image{
+        width:100%;
+        height:400px;
+    }
+
+    .case-title{
+        font-size:52px;
+    }
+
+    .case-desc{
+        font-size:18px;
+    }
+}
+
+  </style>
+    
+</head>
+
+<body>
+
+    <!-- Header / Nav -->
+    <header id="navbar" class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">My<span><span style="visibility: hidden;">.</span>Portfolio</span></a>
+
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#process" class="nav-link">Process</a></li>
+                </ul>
+                <a href="#contact" class="btn btn-primary nav-btn">Let's Talk</a>
+            </nav>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <!-- LEFT -->
+                <div class="text-block left-side">
+                <div class="name">SHADIL K</div>
+                <h1 class="main-title">DIGITAL</h1>
+                </div>
+                <!-- CENTER IMAGE -->
+                <div class="image-wrapper">
+                <img src="images/shabroo.png" alt="Designer">
+                </div>
+                <!-- RIGHT -->
+                <div class="text-block right-side">
+                <h1 class="main-title">DESIGNER</h1>
+                <p class="description">
+                    I'm a Creative UI/UX Designer and <br>
+                    Front-End Developer
+                </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="about-section">
+            <div class="container about-container">
+                <div class="about-image-wrapper reveal fade-right">
+                    <div class="image-border">
+                        <!-- Use generated image -->
+                        <img src="images/about image.png" alt="Shadil" class="about-img">
+                    </div>
+                </div>
+
+                <div class="about-text-wrapper reveal fade-left">
+                    <h2 class="section-title">About <span>Me</span></h2>
+                    <h3 class="section-subtitle">Transforming ideas into reality through creative Design</h3>
+                    <p class="about-desc">
+                        Hello, I am shadil k, a certified UI UX Designer and a recent graduate student in bachelor of computer application
+                        from university of calicut. As a fresher, I bring enthusiasm, a strong willingness to learn, and a
+                        foundational understanding of design, UI/UX design, web development. I’m excited to gain hands-on
+                        experience, grow professionally, and contribute to your team.
+                    </p>
+                    <p class="about-desc">
+                        Beyond just building websites, I build digital experiences that leave a lasting impression. From
+                        dark-mode enthusiast to responsive design advocate, I'm constantly exploring new technologies to
+                        shape the future of the web.
+                    </p>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h4 class="stat-num">20+</h4>
+                            <p class="stat-label">Projects Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4 class="stat-num">10+</h4>
+                            <p class="stat-label">Happy Clients</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4 class="stat-num">100%</h4>
+                            <p class="stat-label">Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies (Any 4) -->
+        <section id="case-studies" class="cases-section bg-alt offset-section">
+            <div class="blob blob-3"></div>
+            <div class="container">
+                <div class="section-header text-center reveal fade-up sticky">
+                    <h2 class="section-title">Featured <span>Case Studies</span></h2>
+                    <p class="section-desc">Deep dives into some of my most impactful projects.</p>
+                </div>
+
+                <div class="cases-grid">
+                    <!-- Case Study 1 -->
+                    <div class="case-card reveal fade-up">
+                        <div class="case-image">
+                            <img src="/images/title 01.png" alt="Analytics Dashboard">
+                        </div>
+                        <div class="case-content">
+                            <span class="case-category text-cyan">Mobile Application</span>
+                            <h3 class="case-title">Shiftly</h3>
+                            <p class="case-desc">Shiftly is a part-time job platform that helps people find nearby
+                                shifts quickly and
+                                apply instantly, while enabling businesses to hire workers fast and efficiently.
+                            </p>
+                            <a href="https://www.behance.net/gallery/247191179/SHIFTLY-A-PART-TIME-JOB-APP-UI-UX-CASE-STUDY"
+                                class="case-link text-cyan">Read Case Study <i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 2 -->
+                    <div class="case-card reveal fade-up" style="transition-delay: 150ms;">
+                        <div class="case-image">
+                            <img src="images/Info12544.png" alt="Mobile App UI">
+                        </div>
+                        <div class="case-content">
+                            <span class="case-category text-indigo">Web / E-Commerce</span>
+                            <h3 class="case-title">Plantora</h3>
+                            <p class="case-desc">Plantora is a plant e-commerce and rental platform where users can buy
+                                or rent plants,
+                                making it easy to bring greenery into homes and spaces.
+                            </p>
+                            <a href="https://www.behance.net/gallery/247727645/PLANTORA-MODERN-PLANT-E-COMMERCE-WEB-UX-UI-DESIGN"
+                                class="case-link text-indigo">Read Case Study <i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 3 -->
+                    <div class="case-card reveal fade-up" style="transition-delay: 300ms;">
+                        <div class="case-image">
+                            <img src="images/DASHBOARD.png" alt="E-Commerce Mockup">
+                        </div>
+                        <div class="case-content">
+                            <span class="case-category text-purple">Dashboard</span>
+                            <h3 class="case-title">Digi Doctor</h3>
+                            <p class="case-desc">Digi Doctor is a pet care dashboard that lets users book vet
+                                appointments,
+                                manage pet health records, and access care services easily in one place.
+                            </p>
+                            <a href="https://www.behance.net/gallery/230809331/Digi-Doctor-Dashboard"
+                                class="case-link text-purple">Read Case Study <i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 4 -->
+                    <div id="case-4" class="case-card reveal fade-up" style="transition-delay: 300ms;">
+                        <div class="case-image">
+                            <img src="images/image 13.png" alt="E-Commerce Mockup">
+                        </div>
+                        <div class="case-content">
+                            <span class="case-category text-purple">Mobile Application</span>
+                            <h3 class="case-title">AdventureX</h3>
+                            <p class="case-desc">AdventureX is a mobile app designed to help users discover, plan, and 
+                                book adventure experiences in a simple and engaging way..
+                            </p>
+                            <a href="https://www.behance.net/gallery/248117277/SAVARI-TRAVEL-AND-TREKKING-APP"
+                                class="case-link text-purple">Read Case Study <i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header reveal fade-up" style="text-align: center;">
+                    <h2 class="section-title">Other <span>Projects</span></h2>
+                    <p class="section-desc">More examples of my design work.</p>
+                </div>
+
+                <div class="container">
+    <h1>My Digital <span style="color: #A052ED; font-weight: bold; font-size: 40px;">Posters</span></h1>
+
+                    <div class="poster-grid">
+                    <div class="poster"><img src="images/image 1.png" alt="Poster 1"></div>
+                    <div class="poster"><img src="images/image 2.png" alt="Poster 2"></div>
+                    <div class="poster"><img src="images/image 3.png" alt="Poster 3"></div>
+                    <div class="poster"><img src="images/image 4.png" alt="Poster 4"></div>
+                    <div class="poster"><img src="images/image 5.png" alt="Poster 5"></div>
+                    <div class="poster"><img src="images/image 6.png" alt="Poster 6"></div>
+                    <div class="poster"><img src="images/image 7.png" alt="Poster 7"></div>
+                    <div class="poster"><img src="images/image 9.png" alt="Poster 8"></div>
+                    <div class="poster"><img src="images/image 10.png" alt="Poster 9"></div>
+                    <div class="poster"><img src="images/image 12.png" alt="Poster 10"></div>
+                    </div>
+
+                </div>
+                <div class="button" id="more">
+                    <button class="view-btn">VIEW MORE</button>
+                </div>
+        </section>
+
+        <!-- Skills & Tools -->
+        <section id="skills" class="skills-section bg-alt">
+            <div class="container text-center">
+                <div class="section-header reveal fade-up">
+                    <h2 class="section-title">Skills & <span>Tools</span></h2>
+                    <p class="section-desc">Technologies I use to bring ideas to life.</p>
+                </div>
+
+                <div class="skills-container reveal fade-up">
+                    <div class="skill-pill"><i class="ph ph-figma-logo text-pink"></i> Figma</div>
+                    <div class="skill-pill"><i class="ph ph-git-merge text-red"></i> Git / GitHub</div>
+                    <div class="skill-pill"><i class="ph ph-git-merge text-red"></i> Adobe Phototshop</div>
+                    <div class="skill-pill"><i class="ph ph-git-merge text-red"></i> Adobe Illustrator</div>
+                    <div class="skill-pill"><i class="ph ph-file-html text-orange"></i> HTML5</div>
+                    <div class="skill-pill"><i class="ph ph-file-css text-blue"></i> CSS3</div>
+                    <div class="skill-pill"><i class="ph ph-atom text-cyan"></i> React.js</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Process -->
+        <section id="process" class="process-section">
+            <div class="blob blob-4"></div>
+            <div class="container">
+                <div class="section-header text-center reveal fade-up">
+                    <h2 class="section-title">My <span>Process</span></h2>
+                    <p class="section-desc">A structured approach to delivering excellence.</p>
+                </div>
+
+                <div class="timeline">
+                    <!-- Step 1 -->
+                    <div class="timeline-item reveal fade-up">
+                        <div class="timeline-dot">1</div>
+                        <div class="timeline-content glass-card">
+                            <h4 class="timeline-title">Discovery & Strategy</h4>
+                            <p>Understanding the core problem, user needs, and business goals. We establish the project
+                                scope and define success criteria.</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="timeline-item reveal fade-up" style="transition-delay: 150ms;">
+                        <div class="timeline-dot">2</div>
+                        <div class="timeline-content glass-card">
+                            <h4 class="timeline-title">Design & Prototyping</h4>
+                            <p>Creating wireframes, visual designs, and interactive prototypes in Figma to visualize the
+                                final product before coding begins.</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="timeline-item reveal fade-up" style="transition-delay: 300ms;">
+                        <div class="timeline-dot">3</div>
+                        <div class="timeline-content glass-card">
+                            <h4 class="timeline-title">Development</h4>
+                            <p>Translating designs into clean, scalable, and semantic code. Utilizing modern frameworks
+                                and best practices for high performance.</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="timeline-item reveal fade-up" style="transition-delay: 450ms;">
+                        <div class="timeline-dot">4</div>
+                        <div class="timeline-content glass-card">
+                            <h4 class="timeline-title">Testing & Launch</h4>
+                            <p>Rigorous cross-browser testing and performance optimization ensuring everything works
+                                flawlessly before pushing to production.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section text-center offset-section">
+            <div class="container">
+                <div class="contact-box glass-card reveal fade-up">
+                    <h2 class="section-title">Let's build something <span>incredible</span></h2>
+                    <p class="contact-desc">Currently open for new opportunities. Whether you have a question or just
+                        want to say hi, I'll try my best to get back to you!</p>
+
+                    <a href="mailto:hello@shadil.com" class="btn btn-primary btn-lg mt-8">Say Hello <i
+                            class="ph ph-envelope-simple"></i></a>
+
+                    <div class="social-links mt-10">
+                        <a href="https://www.linkedin.com/in/shadil-k/" class="social-icon" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                        <a href="https://www.behance.net/shadil-k" class="social-icon" aria-label="Behance"><i class="ph ph-dribbble-logo"></i></a>
+                        <a href="#" class="social-icon" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 Shadil. Designed & Built with passion.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var header = document.getElementById('casesHeader');
+        var case4 = document.getElementById('case-4');
+        if (!header || !case4) return;
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    header.classList.remove('sticky');
+                } else {
+                    header.classList.add('sticky');
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '-' + header.offsetHeight + 'px 0px 0px 0px',
+            threshold: 0
+        });
+
+        observer.observe(case4);
+    });
+    </script>
+</body>
+
+</html>

@@ -129,4 +129,3 @@ cards.forEach((card) => {
     });
 
 });
-

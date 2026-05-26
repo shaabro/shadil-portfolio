@@ -397,6 +397,92 @@ section {
     cursor: pointer;
 }
 
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem 0;
+        background: rgba(6, 11, 20, 0.92);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-container {
+        width: 100%;
+        padding: 0 1rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100vw;
+        height: 100vh;
+        padding: 4rem 1.5rem;
+        background: rgba(6, 11, 20, 0.98);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.35s ease-in-out;
+        z-index: 100;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 1.75rem;
+        align-items: center;
+    }
+
+    .nav-link {
+        font-size: 1.35rem;
+        color: var(--text-main);
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .nav-btn {
+        width: 100%;
+        max-width: 220px;
+        margin-top: 1.5rem;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 110;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.05rem;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+    }
+
+    .nav-btn {
+        max-width: 100%;
+        padding: 0.85rem 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .hamburger {
+        font-size: 1.75rem;
+    }
+}
+
 /* =========================================
    HERO SECTION
 ========================================= */

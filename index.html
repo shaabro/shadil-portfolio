@@ -85,11 +85,12 @@
     }
 
     .hero{
-      width:1920px;
-      height:1080px;
+      width: 100%;
+      min-height: 100vh;
       display:flex;
       justify-content:center;
       align-items:center;
+      padding: 4rem 0;
     }
     
     /* MAIN LAYOUT */
@@ -99,6 +100,7 @@
       justify-content:center;
       gap:60px;
       padding-top: 50px;
+      flex-wrap: wrap;
     }
 
     /* LEFT + RIGHT TEXT */
@@ -170,6 +172,47 @@
     .right-side h1{
       text-align:center;
       margin-bottom: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        padding: 3rem 0 2rem;
+      }
+
+      .hero-content {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .image-wrapper {
+        width: min(85vw, 320px);
+        height: auto;
+      }
+
+      .image-wrapper img {
+        height: auto;
+      }
+
+      .name {
+        width: auto;
+        font-size: 1.25rem;
+      }
+
+      .main-title {
+        font-size: clamp(3rem, 10vw, 5rem);
+      }
+
+      .description {
+        width: 100%;
+        font-size: 1rem;
+        text-align: center;
+      }
+
+      .left-side,
+      .right-side {
+        align-items: center;
+        text-align: center;
+      }
     }
 
 /* CASE STUDIES SECTION */
@@ -416,7 +459,7 @@
                     <!-- Case Study 1 -->
                     <div class="case-card reveal fade-up">
                         <div class="case-image">
-                            <img src="/images/title 01.png" alt="Analytics Dashboard">
+                            <img src="images/casestudy-01.png" alt="Analytics Dashboard">
                         </div>
                         <div class="case-content">
                             <span class="case-category text-cyan">Mobile Application</span>
